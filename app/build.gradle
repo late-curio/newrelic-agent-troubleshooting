@@ -33,10 +33,9 @@ dependencies {
 }
 
 application {
-    // Define the main class for the application.
     mainClass = 'newrelic.agent.troubleshooting.App'
     applicationDefaultJvmArgs = [
-            "-javaagent:${project.projectDir}/newrelic/newrelic-agent-7.8.0.jar",
+            "-javaagent:${project.projectDir}/newrelic/newrelic-agent.jar",
             "-Dnewrelic.config.file=${project.projectDir}/newrelic/newrelic.yml",
             "-Dnewrelic.environment=staging",
             "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
