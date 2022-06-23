@@ -5,3 +5,6 @@
 build
 
 .idea
+
+newrelic.yml
+newrelic_agent.log
