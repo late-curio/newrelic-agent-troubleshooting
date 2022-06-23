@@ -21,7 +21,7 @@ It is likely the agent won't load because there is no license key specified eith
 
 First exercise is to specify your license key in one of these ways.
 
-Once you have, `./gradlew run` should start out with no errors and some output that looks like this:
+Once you have, `./gradlew run` should start out with no errors and some output (after 5 minutes or so) that looks like this:
 
 ```
 2022-06-23T16:18:05,332-0400 [6255 1] com.newrelic INFO: New Relic Agent: Loading configuration file "/Users/yourid/projects/newrelic-agent-troubleshooting/app/newrelic/newrelic.yml"
