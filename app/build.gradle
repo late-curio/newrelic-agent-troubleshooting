@@ -35,6 +35,12 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'newrelic.agent.troubleshooting.App'
+    applicationDefaultJvmArgs = [
+            "-javaagent:/Users/tcrone/work/newrelic/newrelic-java-agent/newrelic-agent/build/newrelicJar/newrelic.jar",
+            "-Dnewrelic.config.file=/Users/tcrone/nr/conf/newrelic.yml",
+            "-Dnewrelic.environment=staging",
+            "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005"
+    ]
 }
 
 tasks.named('test') {
