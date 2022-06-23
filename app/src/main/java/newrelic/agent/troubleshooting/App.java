@@ -4,12 +4,15 @@
 package newrelic.agent.troubleshooting;
 
 import com.newrelic.api.agent.Trace;
+import newrelic.agent.troubleshooting.transactions.Transaction;
+import newrelic.agent.troubleshooting.transactions.Transaction0;
 
 public class App {
     public static void main(String[] args) {
 
-        while(true) {
-            createTransaction();
+        while (true) {
+            Transaction transaction = new Transaction0();
+            transaction.startTransaction();
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {

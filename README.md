@@ -34,3 +34,9 @@ a transaction has been created!
 a transaction has been created!
 a transaction has been created!
 ```
+
+
+## Attribution
+
+Original creator is `gfuller` presumed to be Graham Fuller in 2019.  
+Without his work, we could not have learned about the agent with such good exercises.
