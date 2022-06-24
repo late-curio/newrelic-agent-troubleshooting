@@ -4,7 +4,10 @@
 # Ignore Gradle build output directory
 build
 
+bin
+
 .idea
+.vscode
 
 newrelic.yml
 newrelic_agent.log

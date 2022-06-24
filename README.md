@@ -1,21 +1,23 @@
 # New Relic Agent Troubleshooting
 
 This repo is update on a classic internal project created to provide a set of problems to help people get more familiar
-with how different parts of the java agent work.
+with how different parts of the java agent work.  You will need a modern version of the JDK (8+) installed and a New Relic
+account with a license key.  This can be for production but uncommenting the environment parameter in `app/build.gradle`
+will allow you to run on `staging` (or specify an environment).
 
 ## Setup
-There's a java agent in this project you can use, or you can use your own.  
-If you use your own, you will need to modify the `applicationDefaultJvmArgs` 
-in the `build.gradle` file provided.
-
-The easiest approach is copying the `newrelic-example.yml` to `newrelic.yml` in the same directory
-and use the `newrelic-agent.jar` file provided as they are already setup to work with the Gradle
+The easiest approach is copying the `newrelic-example.yml` (under `app/newrelic`) to `newrelic.yml` in the same directory.
+The current build already uses the `newrelic-agent.jar` file provided as they are already setup to work with the Gradle
 `application` plugin.
 
-Then from root of project, run `./gradlew run`.
+There's a java agent in this project is used by defaul, or you can use your own.  
+If you use your own, you will need to modify the `applicationDefaultJvmArgs` 
+in the `app/build.gradle` file provided.
 
-It is likely the agent won't load because there is no license key specified either
-* In the new `newrelic.yml` file OR
+From root of project, run `./gradlew run`.
+
+It is likely the agent won't load because there is no license key specified.  You will need to add your license key to:
+* the newly copied `newrelic.yml` file OR
 * as a system property OR
 * as an environment variable
 
@@ -34,6 +36,24 @@ a transaction has been created!
 a transaction has been created!
 a transaction has been created!
 ```
+
+If you don't see the agent starting above, you may still need to add your license key to get things running.
+
+Otherwise, let it run for a few minutes (~50 iterations or more).  After about 5 minutes you should see your
+transactions show up in `https://one.newrelic.com/` under `my-app` (or whatever app name you changed it to in config)
+or if you are using `staging` environment, `https://staging-one.newrelic.com/`.
+
+If all is well, CNTRL+C (stop) your application and move onto `Transactions` section.
+
+
+## Transactions
+
+Under `app/src/main/java` there is a main package called `newrelic.agent.troubleshooting` where the `App.java` source
+file resides.  An additional package called `transactions` contains the `Trasaction0.java` implementation used for
+initial startup.  Read the `Problem.md` and proceed to change the implementation used in `App.java` to each differently
+numbered `Transaction#` and learn more about transactions in the New Relic Agent.
+
+Have fun!
 
 
 ## Attribution
