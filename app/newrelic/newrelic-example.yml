@@ -9,7 +9,10 @@
 common: &default_settings
 
   debug: true
-
+  sync_startup: true
+  send_data_on_exit: true
+  send_data_on_exit_threshold: 0
+  
   # ============================== LICENSE KEY ===============================
   # You must specify the license key associated with your New Relic
   # account. For example, if your license key is 12345 use this:
